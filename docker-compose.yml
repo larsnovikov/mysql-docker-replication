@@ -1,0 +1,27 @@
+version: "2"
+services:
+  master_db:
+    build: mysql/master
+    container_name: master-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 33061:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mydb
+  slave_db:
+    build: mysql/slave
+    container_name: slave-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 33062:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mydb
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8085
