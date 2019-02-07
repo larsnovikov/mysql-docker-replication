@@ -10,6 +10,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: mydb
+    env_file:
+      - .env
   slave_db:
     build: mysql/slave
     container_name: slave-db
@@ -20,6 +22,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: mydb
+    env_file:
+      - .env
   adminer:
     image: adminer
     restart: always
