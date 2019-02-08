@@ -6,7 +6,6 @@ RUN apt-get install nano
 RUN mkdir -p /var/lib/mysql
 
 ADD init.sql /init.sql
-ADD dump.sql /dump.sql
 ADD init.sh /init.sh
 
 COPY slave.cnf /etc/mysql/conf.d/slave.cnf

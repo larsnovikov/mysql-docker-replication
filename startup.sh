@@ -1,8 +1,5 @@
 #!/bin/bash
 
-cp mysql/dump.sql mysql/master/dump.sql
-cp mysql/dump.sql mysql/slave/dump.sql
-
 sudo docker-compose down
 sudo docker-compose up -d --build
 
