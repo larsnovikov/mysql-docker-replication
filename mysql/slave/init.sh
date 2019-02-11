@@ -6,6 +6,5 @@ slave_user=$SLAVE_USER
 while read query; do
     query=${query/"[password]"/$password}
     query=${query/"[slave_user]"/$slave_user}
-    echo "$query"
     mysql -u root --password=$MYSQL_ROOT_PASSWORD -Dmydb -e "$query"
 done < /init.sql
