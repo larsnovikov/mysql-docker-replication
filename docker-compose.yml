@@ -7,6 +7,8 @@ services:
     restart: always
     ports:
       - 33061:3306
+    volumes:
+      - ./volume/master:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: mydb
@@ -19,6 +21,8 @@ services:
     restart: always
     ports:
       - 33062:3306
+    volumes:
+      - ./volume/slave:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: mydb
